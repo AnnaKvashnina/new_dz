@@ -19,7 +19,7 @@ def mask_account_card(user_information:str) -> str:
         return f"{letter_result} {get_mask_card_number(number_result)}"
 
 
-#def get_date(date:str) -> str:
-#    """ Функция возвращает строку с датой в формате "ДД.ММ.ГГГГ" """
+def get_date(date:str) -> str:
+    """ Функция возвращает строку с датой в формате "ДД.ММ.ГГГГ" """
 
-#    return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
+    return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
