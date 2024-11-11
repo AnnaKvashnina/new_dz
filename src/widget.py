@@ -1,7 +1,7 @@
 from src.masks import get_mask_card_number, get_mask_account
 
 
-def mask_account_card(user_information:str) -> str:
+def mask_account_card(user_information: str) -> str:
     """ Функция, которая умеет обрабатывать информацию как о картах, так и о счетах."""
 
     letter_result = ""
@@ -19,7 +19,7 @@ def mask_account_card(user_information:str) -> str:
         return f"{letter_result} {get_mask_card_number(number_result)}"
 
 
-def get_date(date:str) -> str:
+def get_date(date: str) -> str:
     """ Функция возвращает строку с датой в формате "ДД.ММ.ГГГГ" """
 
     return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
