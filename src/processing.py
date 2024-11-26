@@ -1,3 +1,4 @@
+# from pickle import FALSE
 from typing import Any
 
 dictionary_list = [
@@ -12,13 +13,13 @@ def filter_by_state(dictionary_list: list[dict[str, Any]], state: str = 'EXECUTE
     """ value output function """
 
     executed_list = []
-    for i in dictionary_list:
-        if i["state"] == state:
-            executed_list.append(i)
+    for key_state in dictionary_list:
+        if key_state["state"] == state:
+            executed_list.append(key_state)
     return executed_list
 
 
-def sort_by_date(dictionary_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def sort_by_date(dictionary_list: list[dict[str, Any]], rev: bool) -> list[dict[str, Any]]:
     """ date sort function """
-    list_by_date = sorted(dictionary_list, key=lambda x: x["date"], reverse=reversed)
+    list_by_date = sorted(dictionary_list, key=lambda x: x["date"], reverse=rev)
     return list_by_date
