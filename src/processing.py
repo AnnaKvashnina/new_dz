@@ -10,7 +10,15 @@ dictionary_list = [
 
 def filter_by_state(dictionary_list: list[dict[str, Any]], state: str = 'EXECUTED') -> list[dict[str, Any]]:
 
-    """ value output function """
+    """ value output function
+     # Выход функции со статусом по умолчанию 'EXECUTED'
+[{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}]
+
+# Выход функции, если вторым аргументов передано 'CANCELED'
+[{'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+Пример входных данных для проверки функции
+[{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+"""
 
     executed_list = []
     for key_state in dictionary_list:
@@ -20,6 +28,12 @@ def filter_by_state(dictionary_list: list[dict[str, Any]], state: str = 'EXECUTE
 
 
 def sort_by_date(dictionary_list: list[dict[str, Any]], rev: bool) -> list[dict[str, Any]]:
-    """ date sort function """
+    """ date sort function
+        Примеры работы функции
+# Выход функции (сортировка по убыванию, т. е. сначала самые последние операции)
+[{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}]
+Пример входных данных для проверки функции
+[{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+"""
     list_by_date = sorted(dictionary_list, key=lambda x: x["date"], reverse=rev)
     return list_by_date
